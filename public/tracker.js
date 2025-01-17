@@ -2,7 +2,8 @@
   const { location, document, navigator } = window;
   const { hostname: host, pathname } = location;
   const { currentScript, referrer } = document;
-  const currentRef = !referrer.includes(host) ? referrer : "";
+  //const currentRef = !referrer.includes(host) ? referrer : "";
+  const currentRef = referrer;
   if (!currentScript || navigator.userAgent.indexOf("Electron") > 0) return;
   const attr = currentScript.getAttribute.bind(currentScript);
   const website = attr("data-website-id");
