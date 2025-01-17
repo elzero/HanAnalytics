@@ -4,7 +4,7 @@
       <div class="main">
         <div class="logo">
           <img src="./assets/favicon.ico">
-          <span>Han Analytics</span>
+          <span>Analytics</span>
         </div>
         <h2>Leepow 的 Web 分析</h2>
       </div>
