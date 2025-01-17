@@ -76,7 +76,7 @@
 
         <div ref="echartsDOM" class="data-view"></div>
 
-        <div class="pt-20 grid md:grid-cols-2 sm:grid-cols-1 gap-[16px]">
+        <div class="pt-20 grid md:grid-cols-3 sm:grid-cols-1 gap-[16px]">
           <Card class="box-border flex flex-col w-full h-[460px] overflow-hidden">
             <CardHeader>
               <CardTitle>Pages</CardTitle>
@@ -113,6 +113,31 @@
                   <a :href="i.name" target="_blank" rel="noopener noreferrer" class="line-clamp-1 cursor-pointer">
                     {{ i.name || '(None)' }}
                   </a>
+                  <span class="line-clamp-1">{{ i.value }}</span>
+                  <em>{{ i.per }}<i :style="{ width: i.per }"></i></em>
+                </p>
+              </ScrollArea>
+              <div class="space-y-4 pt-8 w-full" v-else>
+                <Skeleton class="h-6 w-60" />
+                <Skeleton class="h-6 w-80" />
+                <Skeleton class="h-6 w-100" />
+                <Skeleton class="h-6 w-60" />
+                <Skeleton class="h-6 w-80" />
+                <Skeleton class="h-6 w-100" />
+                <Skeleton class="h-6 w-80" />
+                <Skeleton class="h-6 w-full" />
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card class="box-border flex flex-col w-full h-[460px] overflow-hidden">
+            <CardHeader>
+              <CardTitle>Hosts</CardTitle>
+            </CardHeader>
+            <CardContent class="box-border pt-0 w-full h-full overflow-hidden">
+              <ScrollArea class="box-border p-2 pt-0 h-full w-full pages-list" v-if="resData.host != undefined">
+                <p class="page-item" v-for="(i, idx) in resData.host" :key="idx">
+                  <span class="line-clamp-1">{{ i.name }}</span>
                   <span class="line-clamp-1">{{ i.value }}</span>
                   <em>{{ i.per }}<i :style="{ width: i.per }"></i></em>
                 </p>
@@ -317,7 +342,7 @@ const getDatas = async () => {
   resData.value = { visit: {} }
   tempResData.value = { visit: {} }
   // 获取数据
-  const pmsARR = ['visit', 'path', 'referrer', 'os', 'soft', 'area', 'echarts'];
+  const pmsARR = ['visit', 'path', 'referrer', 'host', 'os', 'soft', 'area', 'echarts'];
   getDatasStatus.value = true
   vh.showLoading()
   const promisesForEach: Array<Promise<any>> = [];

@@ -14,7 +14,7 @@ export async function onRequest({ request, env }) {
     // 是否配置Cloudflare信息
     if (!env.CLOUDFLARE_ACCOUNT_ID || !env.CLOUDFLARE_API_TOKEN) return Response.json({ success: false, message: "请设置 CLOUDFLARE_ACCOUNT_ID 和 CLOUDFLARE_API_TOKEN" }, { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "*", "Access-Control-Allow-Headers": "*" } });
     // 参数校验
-    const typeARR = ["visit", "list", "path", "referrer", "os", "soft", "area", "echarts"];
+    const typeARR = ["visit", "list", "path", "referrer", "os", "soft", "area", "echarts", "host"];
     if (!typeARR.includes(type)) return Response.json({ success: false, message: "参数错误" }, { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "*", "Access-Control-Allow-Headers": "*" } });
     // 时区
     const tz = request.cf.timezone || "Asia/Shanghai";
