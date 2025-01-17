@@ -37,7 +37,7 @@ export const formatTime = (timeStr, tz) => {
 // 次数统计
 export const countData = (arr, key, keyType, status = true) => {
   // 处理JS中对象无序排列问题
-  const _StringKey = status ? "" : `-_-www.vvhan.com-_-`;
+  const _StringKey = status ? "" : `-_-www.leepow.com-_-`;
   let res = arr.reduce((_arr, v) => {
     _arr[`${v[key]}${_StringKey}`] ? (_arr[`${v[key]}${_StringKey}`] += Number(v["count"]) || 1) : (_arr[`${v[key]}${_StringKey}`] = Number(v["count"]) || 1);
     return _arr;
