@@ -4,7 +4,7 @@ export const vh_INIT = async (env, time, siteID, tz, type = null) => {
   // 查询
   const defaultHeaders = { "content-type": "application/json;charset=UTF-8", "X-Source": "Cloudflare-Workers", Authorization: `Bearer ${env.CLOUDFLARE_API_TOKEN}` };
   const defaultUrl = `https://api.cloudflare.com/client/v4/accounts/${env.CLOUDFLARE_ACCOUNT_ID}/analytics_engine/sql`;
-  const SQL_WHERE = `FROM AnalyticsDataset WHERE timestamp >= ${formatTime(time, tz)} AND blob1 = '${siteID}'`;
+  const SQL_WHERE = `FROM AnalyticsDataset WHERE index1 = '' AND timestamp >= ${formatTime(time, tz)} AND blob1 = '${siteID}'`;
   let resJSON;
   switch (type) {
     // 获取f数据
