@@ -100,13 +100,14 @@ export const echartsData = (data, key, tz) => {
   switch (key) {
     case "today":
     case "1d":
-    case "2d":
-    case "3d":
       timeArr = data.map((i) => {
         i.t_str = dayjs.utc(i.hour).tz(tz).format("HH");
         return i;
       });
       break;
+      
+    case "2d":
+    case "3d":
     case "7d":
     case "30d":
     case "60d":
