@@ -22,6 +22,8 @@ export const formatTime = (timeStr, tz) => {
   let sqlTime = "";
   switch (timeStr) {
     case "1d":
+    case "2d":
+    case "3d":
     case "7d":
     case "30d":
     case "60d":
@@ -58,6 +60,8 @@ export const countData = (arr, key, keyType, status = true) => {
       });
       break;
 
+    case "2d":
+    case "3d":
     case "7d":
     case "30d":
     case "60d":
@@ -86,6 +90,8 @@ export const countData = (arr, key, keyType, status = true) => {
 export const echartsData = (data, key, tz) => {
   // key=0 Today - 12小时
   // key=1 Last24小时 - 24小时
+  // key=2 过去2天
+  // key=3 过去3天
   // key=7 过去7天
   // key=30 过去30天
   // key=60 过去60天
@@ -94,6 +100,8 @@ export const echartsData = (data, key, tz) => {
   switch (key) {
     case "today":
     case "1d":
+    case "2d":
+    case "3d":
       timeArr = data.map((i) => {
         i.t_str = dayjs.utc(i.hour).tz(tz).format("HH");
         return i;

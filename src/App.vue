@@ -311,7 +311,7 @@ const loginFn = async () => {
 // 站点列表
 const siteList = ref<Array<string>>([])
 const siteValue = ref<string>('')
-const timeList = [{ name: 'Today', value: 'today' }, { name: 'Yesterday', value: '1d' }, { name: 'Last 7 days', value: '7d' }, { name: 'Last 30 days', value: '30d' }, { name: 'Last 60 days', value: '60d' }, { name: 'Last 90 days', value: '90d' }]
+const timeList = [{ name: 'Today', value: 'today' }, { name: 'Yesterday', value: '1d' }, { name: 'Last 2 days', value: '2d' }, { name: 'Last 3 days', value: '3d' }, { name: 'Last 7 days', value: '7d' }, { name: 'Last 30 days', value: '30d' }, { name: 'Last 60 days', value: '60d' }, { name: 'Last 90 days', value: '90d' }]
 const timeValue = ref<string>('today')
 const getSiteList = async () => {
   vh.showLoading()
